@@ -16,6 +16,11 @@ namespace Dialogo
         [SerializeField] GameObject panelUI;
         [SerializeField] TMP_Text textoTMP;
         [SerializeField] Image imageUI;
+        [SerializeField] AudioClip audioClip;
+        [SerializeField] AudioSource audioSource;
+
+
+        [SerializeField] float retardo;
 
         Queue<string> stringQueue;
         Queue<Sprite> spriteQueue;
@@ -26,6 +31,7 @@ namespace Dialogo
         void Start()
         {
             panelUI.SetActive(dialogoIniciado);
+            audioSource.clip = audioClip;
         }
 
 
@@ -52,11 +58,12 @@ namespace Dialogo
 
         private void ExtraerDialogo()
         {
+            textoTMP.text = "";
             string linea = stringQueue.Dequeue();
             Sprite sprite = spriteQueue.Dequeue();
             Debug.Log(linea);
-            textoTMP.text = linea;
             imageUI.sprite = sprite;
+            textoTMP.text = linea;
         }
 
         private void ContinuarDialogo()
