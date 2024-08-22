@@ -8,6 +8,7 @@ namespace Eventos
     public static class Events
     {
         public static EventoPrueba EventoPrueba = new EventoPrueba();
+        public static TriggersEvents TriggersEvents = new TriggersEvents();
 
     }
 
@@ -16,5 +17,11 @@ namespace Eventos
     {
         public string StringPrueba;
         public int IntPrueba;
+    }
+
+    public class TriggersEvents : GameEvent
+    {
+        public string objeto;
+    
     }
 }
